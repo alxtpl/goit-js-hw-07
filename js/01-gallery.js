@@ -32,6 +32,17 @@ function bigImageXtr(e) {
 `);
 
     instance.show();
+    document.addEventListener("keydown", (e) => {
+        if (e.code === "Escape") {
+            instance.close();
+        }
+    });
 }
+
+// function closeModalEscape(e) {
+//     if (e.code === "Escape") {
+//         instance.close();
+//     }
+// }
 
 galleryAdd();
