@@ -2,6 +2,7 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const listGalleryNode = document.querySelector(".gallery");
+const galleryImageNode = document.querySelector(".gallery__image");
 
 const galleryAdd = () => {
     const galleryReturn = galleryItems
@@ -23,6 +24,14 @@ function bigImageXtr(e) {
     e.preventDefault();
     if (e.target.tagName !== "IMG") return;
     console.log(dataSource);
+
+    const instance = basicLightbox.create(`
+    <div class="modal">
+       <img width="1400" height="900" src="${e.target.dataset.source}">
+    </div>
+`);
+
+    instance.show();
 }
 
 galleryAdd();
