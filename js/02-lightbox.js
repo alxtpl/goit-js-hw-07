@@ -10,7 +10,7 @@ const galleryAdd = () => {
         .map(({ preview, original, description }) => {
             return `
           <li class="gallery__item">
-            <a class="gallery__item" href="${original}">
+            <a href="${original}">
              <img class="gallery__image" src="${preview}" alt="${description}" />
             </a>
             </li>
@@ -21,16 +21,19 @@ const galleryAdd = () => {
 
     listGalleryNode.insertAdjacentHTML("afterbegin", galleryReturn);
 };
-
-listGalleryNode.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (e.target.tagName !== "IMG") return;
-    const lightbox = new SimpleLightbox(".gallery a", {
-        /* options */
-    });
-    lightbox.options.captionsData = "alt";
-    lightbox.options.captionDelay = 250;
-    // listGalleryNode.removeEventListener("click", e);
-});
-
 galleryAdd();
+
+// listGalleryNode.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     if (e.target.tagName !== "IMG") return;
+console.log(SimpleLightbox);
+const lightbox = new SimpleLightbox(".gallery a", {
+    /* options */
+    captionsData: "alt",
+    captionDelay: 250,
+});
+// lightbox.options.captionsData = "alt";
+// lightbox.options.captionDelay = 250;
+
+// listGalleryNode.removeEventListener("click", e);
+// });

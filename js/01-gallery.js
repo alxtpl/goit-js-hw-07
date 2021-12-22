@@ -2,7 +2,6 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const listGalleryNode = document.querySelector(".gallery");
-const galleryImageNode = document.querySelector(".gallery__image");
 
 const galleryAdd = () => {
     const galleryReturn = galleryItems
