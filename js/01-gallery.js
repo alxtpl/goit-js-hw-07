@@ -7,10 +7,10 @@ const galleryImageNode = document.querySelector(".gallery__image");
 const galleryAdd = () => {
     const galleryReturn = galleryItems
         .map(({ preview, original, description }) => {
-            return `<li class="gallery__item">
+            return `<div class="gallery__item">
                          <a class="gallery__link" href="${original}">
                             <img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}"/> </a>
-                    </li>`;
+                    </div>`;
         })
         .join("");
 
@@ -37,6 +37,7 @@ function bigImageXtr(e) {
             instance.close();
         }
     });
+    document.removeEventListener("keydown", e);
 }
 
 galleryAdd();
