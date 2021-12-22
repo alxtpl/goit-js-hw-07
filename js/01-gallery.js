@@ -39,10 +39,4 @@ function bigImageXtr(e) {
     });
 }
 
-// function closeModalEscape(e) {
-//     if (e.code === "Escape") {
-//         instance.close();
-//     }
-// }
-
 galleryAdd();
