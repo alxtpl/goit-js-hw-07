@@ -23,21 +23,27 @@ function bigImageXtr(e) {
     const dataSource = e.target.dataset.source;
     e.preventDefault();
     if (e.target.tagName !== "IMG") return;
-    console.log(dataSource);
 
-    const instance = basicLightbox.create(`
+    const instance = basicLightbox.create(
+        `
     <div class="modal">
        <img width="1400" height="900" src="${e.target.dataset.source}">
     </div>
-`);
+`, {
+            onClose: () => {
+                document.removeEventListener("keydown", escButton);
+            },
+        }
+    );
 
     instance.show();
-    document.addEventListener("keydown", (e) => {
+
+    document.addEventListener("keydown", escButton);
+
+    function escButton(e) {
         if (e.code === "Escape") {
             instance.close();
         }
-    });
-    document.removeEventListener("keydown", e);
+    }
 }
-
 galleryAdd();
